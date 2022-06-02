@@ -36,17 +36,17 @@ Number.prototype.round = function(places = 0) {
     return +(Math.round(this + "e+" + places)  + "e-" + places);
 }
 
-
 let firstNum = "";
 let secondNum = "";
 let operator = "";
 let place = true;  //true means first number
-
+let result = '';
 
 //sets the numbers
 function setNum(num) {
     if (place) {
         firstNum += num;
+        result = '';
     }
     else if (!place) {
         secondNum += num;
@@ -57,19 +57,30 @@ function setNum(num) {
 
 //sets the operator
 function setOp(op) {
-    operator = op;
-    place = false;
-
-    display();
+    if (result != '') {
+        firstNum = result;
+        operator = op;
+        place = false;
+        display();
+    }
+    else if (firstNum == '') {
+        alert('first the first Number please!');
+    }
+    else {
+        operator = op;
+        place = false;
+    
+        display();
+    }
 }
 
 //clears everything
-function clear() {
+function clean() {
     firstNum = "";
     secondNum = "";
     operator = "";
+    result = '';
     place = true;
-    
     display();
 }
 
@@ -77,10 +88,25 @@ const content = document.querySelector('#display');
 
 //shows the result
 function equals() {
-    let result = operate(operator, firstNum, secondNum).round(3);
-    content.textContent = `${firstNum} ${operator} ${secondNum} = ${result}`;
-}
+    if (firstNum == '' || secondNum == '') {
+        alert("No numbers");
+    }
+    else if (secondNum === '0') {
+        alert('Don\'t divide by 0!');
+        secondNum = '';
+        display();
+    }
+    else {
+        result = operate(operator, firstNum, secondNum).round(3);
+        content.textContent = `${firstNum} ${operator} ${secondNum} = ${result}`;
+        
+        firstNum = "";
+        secondNum = "";
+        operator = "";
+        place = true;
+    }
 
+}
 
 //shows the numbers and operator
 function display() { 
