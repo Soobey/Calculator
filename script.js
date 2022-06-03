@@ -57,14 +57,24 @@ function setNum(num) {
 
 //sets the operator
 function setOp(op) {
-    if (result != '') {
-        firstNum = result;
-        operator = op;
-        place = false;
-        display();
+
+    //In case you want to keep the result
+    if (firstNum != '' && secondNum != '') {
+        if (secondNum === '0' && operator === '/') {
+            alert('Don\'t divide by 0!');
+            secondNum = '';
+            display();
+        }
+        else {
+            firstNum = operate(operator, firstNum, secondNum).round(3);
+            operator = op;
+            secondNum = '';
+            place = false;
+            display();
+        } 
     }
     else if (firstNum == '') {
-        alert('first the first Number please!');
+        alert('first the first Number please!!');
     }
     else {
         operator = op;
@@ -88,10 +98,13 @@ const content = document.querySelector('#display');
 
 //shows the result
 function equals() {
-    if (firstNum == '' || secondNum == '') {
-        alert("No numbers");
+    if (firstNum == '') {
+        alert("No first number");
     }
-    else if (secondNum === '0') {
+    else if (secondNum == '') {
+        alert("No second number");
+    }
+    else if (secondNum === '0' && operator === '/') {
         alert('Don\'t divide by 0!');
         secondNum = '';
         display();
