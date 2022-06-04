@@ -60,14 +60,14 @@ function setNum(num) {
 function setOp(op) {
 
     //In case you want to keep the result
-    if (result != '') {
+    if (result.length != 0) {
         firstNum = result;
         secondNum = '';
         operator = op;
         place = false;
         display();
     }
-    else if (firstNum != '' && secondNum != '') {
+    else if (firstNum.length != 0 && secondNum.length != 0) {
         if (secondNum === '0' && operator === '/') {
             alert('Don\'t divide by 0!');
             secondNum = '';
@@ -82,7 +82,7 @@ function setOp(op) {
         } 
     }
     
-    else if (firstNum == '') {
+    else if (firstNum.length === 0) {
         alert('first the first Number please!!');
     }
     else {
@@ -107,7 +107,7 @@ const content = document.querySelector('#display');
 
 //shows the result
 function equals() {
-    if (secondNum == '') {
+    if (secondNum.length === 0) {
         alert("No second number");
     }
     else if (secondNum === '0' && operator === '/') {
