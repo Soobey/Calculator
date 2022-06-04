@@ -3,29 +3,63 @@
 <head>
     <script src="/script.js" defer></script>
     <link rel="stylesheet" href="/style.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
 </head>
 <body>
-    <button onclick="setNum('1')">1</button>
-    <button onclick="setNum('2')">2</button>
-    <button onclick="setNum('3')">3</button>
-    <button onclick="setNum('4')">4</button>
-    <button onclick="setNum('5')">5</button>
-    <button onclick="setNum('6')">6</button>
-    <button onclick="setNum('7')">7</button>
-    <button onclick="setNum('8')">8</button>
-    <button onclick="setNum('9')">9</button>
-    <button onclick="setNum('0')">0</button>
-    <button onclick="setOp('+')">+</button>
-    <button onclick="setOp('-')">-</button>
-    <button onclick="setOp('*')">*</button>
-    <button onclick="setOp('/')">/</button>
-    <button onclick="equals()">=</button>
-    <button onclick="clean()">clear</button>
-    <div id="display"></div>
-    <div id="result"></div>
+    <div class="calculator">
+        <div id="display">0</div>
+
+        <div class="keyboard">
+
+            <button onclick="clean()">C</button>
+
+            <div class="one">
+                <div class="numbers">
+                    <button onclick="setNum('1')">1</button>
+                    <button onclick="setNum('2')">2</button>
+                    <button onclick="setNum('3')">3</button>
+                    <button onclick="setNum('4')">4</button>
+                    <button onclick="setNum('5')">5</button>
+                    <button onclick="setNum('6')">6</button>
+                    <button onclick="setNum('7')">7</button>
+                    <button onclick="setNum('8')">8</button>
+                    <button onclick="setNum('9')">9</button>
+                    <button onclick="setNum('0')">0</button>
+                    <button onclick="">.</button>
+                    <button onclick="equals()">=</button>
+                </div>
+        
+                <div class="operators">
+                    <button onclick="setOp('+')">+</button>
+                    <button onclick="setOp('-')">-</button>
+                    <button onclick="setOp('x')">x</button>
+                    <button onclick="setOp('/')">/</button>
+                </div>
+            </div>
+            
+    
+            
+        </div>
+    </div>
+     
+    <footer class="footer">
+        <p>
+            Copyright
+            &copy;
+            <span id="copyright">
+                <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+            </span>
+            Szabolcs Ambrus
+
+            <a href="https://github.com/Soobey" target="_blank">
+                <i class='fa fa-github' style="font-size: 24px; color: black;"></i>
+            </a>
+        </p>
+    </footer>
+    
 </body>
 </html>

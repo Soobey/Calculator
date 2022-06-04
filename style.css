@@ -1,0 +1,80 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+
+.calculator {
+    border: solid;
+    border-radius: 15px;
+    width: 500px;
+    height: 800px;
+}
+
+#display {
+    text-align: right;
+    padding: 16px 32px 29px;
+    font-size: 80px;
+    width: 436px;
+    height: 200px;
+}
+
+.keyboard {
+    height: 562px;
+    width: 500px;
+}
+
+button {
+    font-size: 48px;
+    background-color: white;
+    /*border: solid rgb(94, 94, 94) 1px; */
+    border: white;
+    width: 125px;
+    padding: 0;
+    margin: 0;
+    border-radius: 15px;
+}
+
+.one button {
+    height: 125px;
+}
+
+.one {
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+}
+
+.numbers {
+    display: flex;
+    flex-wrap: wrap;
+    width: 375px;
+}
+
+.operators {
+    width: 125px;
+}
+
+.operators button {
+    background-color: rgba(255, 0, 0, 0.322);
+    border-radius: 0px;
+    padding: 3px;
+}
+
+.keyboard > button {
+    color: red;
+}
+.footer {
+    background-color: rgba(238, 5, 5, 0.651);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    font-size: 20px;
+    margin-top: 0;
+}

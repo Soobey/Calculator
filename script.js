@@ -23,7 +23,7 @@ function operate(op, num1, num2) {
     else if (op === '-'){
         return subtract(+num1, +num2);
     }
-    else if (op === '*'){
+    else if (op === 'x'){
         return multiply(+num1, +num2);
     }
     else if (op === '/'){
@@ -83,7 +83,6 @@ function setOp(op) {
     }
     
     else if (firstNum.length === 0) {
-        alert('first the first Number please!!');
     }
     else {
         operator = op;
@@ -108,7 +107,6 @@ const content = document.querySelector('#display');
 //shows the result
 function equals() {
     if (secondNum.length === 0) {
-        alert("No second number");
     }
     else if (secondNum === '0' && operator === '/') {
         alert('Don\'t divide by 0!');
@@ -117,7 +115,7 @@ function equals() {
     }
     else {
         result = operate(operator, firstNum, secondNum).round(3);
-        content.textContent = `${firstNum} ${operator} ${secondNum} = ${result}`;
+        content.textContent = `${firstNum} ${operator} ${secondNum} \n \n= ${result}`;
         
         firstNum = "";
         secondNum = "";
